@@ -600,3 +600,22 @@ The fingerprint of the certificate to remove from the certificate store.
     $store.Remove($cert)
     $store.Close()
 }
+
+<#
+.DESCRIPTION
+Get the childs processes of the process pid passed as argument.
+
+.PARAMETER string
+The PID of the process to search for the subprocesses.
+
+.OUTPUTS
+An array of Win32_Process objects
+#>
+function GetChildPid {
+    param (
+        [Parameter(Mandatory=$true)][Int32]$id
+    )
+
+    [array]$result = Get-WmiObject -Class Win32_Process -Filter "ParentProcessID=$id"
+    return $result
+}
