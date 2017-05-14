@@ -313,7 +313,7 @@ signature file.
     }
 
     if (!(Test-Path "$signatureFile")) {
-        throw "Unable tofind the PGP signature file '$signatureFile'."
+        throw "Unable to find the PGP signature file '$signatureFile'."
     }
 
     if ($file -and !(Test-Path "$file")) {
